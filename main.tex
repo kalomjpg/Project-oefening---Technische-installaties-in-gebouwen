@@ -27,7 +27,9 @@
 \usepackage{fancyhdr}              % Voor de UGent-stijl headers en footers
 \usepackage{hyperref}              % Voor een klikbare inhoudsopgave
 \usepackage{caption}               % Voor mooie bijschriften bij je figuren
-\usepackage[parfill]{parskip}      % Zorgt voor witruimte tussen alinea's ipv inspringen
+\usepackage[parfill]{parskip}  % Zorgt voor witruimte tussen alinea's ipv inspringen
+\usepackage{pdfpages}
+\usepackage{adjustbox}
 
 % --- Start van het document ---
 \begin{document}
@@ -85,26 +87,89 @@ De gehanteerde formule voor het basisdebiet is:
 
 Om te allen tijde een sluitende balans op gebouwniveau te garanderen, is het totale toevoerdebiet gelijkgesteld aan het totale afvoerdebiet. Voor deze wooneenheid resulteert dit in een totaalbalans van \qty{516,8}{\cubic\meter\per\hour}
 
-Tijdens het ontwerpproces is voor de afvoer een optimalisatie doorgevoerd ter bevordering van het akoestisch comfort. De extractiedebieten in de badkamers en technische ruimte zijn gereduceerd tot hun aanbevolen minima of wettelijke maxima (afgetopt op \qty{75}{\cubic\meter\per\hour} voor de badkamers) om overmatig stromingsgeluid in deze kleinere ruimtes te voorkomen. Het resulterende afvoeroverschot op de balans wordt gecompenseerd door verhoogde extractie in de twee verkeersruimten (hallen). Figuur \ref{fig:ventilatiedebieten}  geeft een overzicht van de resulterende toe- en afvoerdebieten.
+Tijdens het ontwerpproces is voor de afvoer een optimalisatie doorgevoerd ter bevordering van het akoestisch comfort. De extractiedebieten in de badkamers en technische ruimte zijn gereduceerd tot hun aanbevolen minima of wettelijke maxima (afgetopt op \qty{75}{\cubic\meter\per\hour} voor de badkamers) om overmatig stromingsgeluid in deze kleinere ruimtes te voorkomen. Het resulterende afvoeroverschot op de balans wordt gecompenseerd door verhoogde extractie in de twee verkeersruimten (hallen). Tabel \ref{tab:ventilatiedebieten}  geeft een overzicht van de resulterende toe- en afvoerdebieten.
 
-\begin{figure}[H]
+\begin{table}[!ht]
     \centering
-    \includegraphics[width=1\linewidth]{figuren/image.png}
-    \caption{ventilatie debieten}
-    \label{fig:ventilatiedebieten}
-\end{figure}
+    \caption{Overzicht van de berekende ventilatiedebieten.}
+    \label{tab:ventilatiedebieten}
+    \begin{adjustbox}{max width=\textwidth} % Dit zorgt voor de perfecte centrering
+    \begin{tabular}{lccccc}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{Ruimte} & \textbf{Oppervlakte} & \textbf{Normaal debiet} & \textbf{Min. debiet} & \textbf{Beperkt tot} & \textbf{Ontwerpdebiet} \\
+        \rowcolor{gray!20}
+        ~ & ($m^2$) & ($m^3/h$) & ($m^3/h$) & ($m^3/h$) & ($m^3/h$) \\
+        \midrule
+        \multicolumn{6}{l}{\textit{\textbf{TOEVOER}}} \\
+        \midrule
+        Privé 1 & 25,60 & 93,60 & 25,00 & 72,00 & 72,00 \\
+        Privé 2 & 25,60 & 93,60 & 25,00 & 72,00 & 72,00 \\
+        Woonkamer & 70,50 & 253,80 & 75,00 & 150,00 & 150,00 \\
+        Slaapkamer 1 & 18,93 & 68,10 & 25,00 & 72,00 & 68,10 \\
+        Slaapkamer 2 & 18,93 & 68,10 & 25,00 & 72,00 & 68,10 \\
+        Slaapkamer 3 & 12,03 & 43,30 & 25,00 & 72,00 & 43,30 \\
+        Slaapkamer 4 & 12,03 & 43,30 & 25,00 & 72,00 & 43,30 \\
+        \cmidrule{5-6}
+        \rowcolor{gray!20}
+        \textbf{Totaal Toevoer} & ~ & ~ & ~ & ~ & \textbf{516,80} \\
+        \midrule
+        \multicolumn{6}{l}{\textit{\textbf{AFVOER}}} \\
+        \midrule
+        Open keuken & 70,50 & 253,80 & 75,00 & 75,00 & 116,80 \\
+        Badkamer 1 & 11,86 & 42,70 & 50,00 & 75,00 & 75,00 \\
+        Badkamer 2 & 11,86 & 42,70 & 50,00 & 75,00 & 75,00 \\
+        Technische ruimte & 4,00 & 14,40 & 50,00 & 75,00 & 50,00 \\
+        Hal 1 & 3,60 & 12,96 & 50,00 & 75,00 & 100,00 \\
+        Hal 2 & 3,60 & 12,96 & 50,00 & 75,00 & 100,00 \\
+        \cmidrule{5-6}
+        \rowcolor{gray!20}
+        \textbf{Totaal Afvoer} & ~ & ~ & ~ & ~ & \textbf{516,80} \\
+        \bottomrule
+    \end{tabular}
+    \end{adjustbox}
+\end{table}
+
+
 
 
 \subsection{Doorstroomopeningen}
-Om de luchtstroom tussen toevoer- en afvoerlokalen te faciliteren, zijn doorstroomopeningen berekend. De gehanteerde ontwerpregel stelt dat er \qty{10}{\square\centi\meter} vrije doorlaat vereist is per \qty{3,6}{\meter\per\hour} ontwerpluchtdebiet. De benodigde spleethoogte is berekend door deze vereiste oppervlakte te delen door de standaard deurbreedte van 90 cm. Voor de badkamers wordt afgeweken van een deurspleet en is gekozen voor een akoestisch rooster om de privacy tussen de ruimtes te waarborgen. Alle waarden zijn te vinden in Figuur \ref{fig:doorstroomopeningen}.
+Om de luchtstroom tussen toevoer- en afvoerlokalen te faciliteren, zijn doorstroomopeningen berekend. De gehanteerde ontwerpregel stelt dat er \qty{10}{\square\centi\meter} vrije doorlaat vereist is per \qty{3,6}{\meter\per\hour} ontwerpluchtdebiet. De benodigde spleethoogte is berekend door deze vereiste oppervlakte te delen door de standaard deurbreedte van 90 cm. Voor de badkamers wordt afgeweken van een deurspleet en is gekozen voor een akoestisch rooster om de privacy tussen de ruimtes te waarborgen. Alle waarden zijn te vinden in Tabel \ref{tab:doorstroom}.
 
-
-\begin{figure}
+\begin{table}[!ht]
     \centering
-    \includegraphics[width=1\linewidth]{figuren/doorstroomopeningen.png}
-    \caption{doorstroomopeningen}
-    \label{fig:doorstroomopeningen}
-\end{figure}
+    \caption{Overzicht van de berekende doorstroomdebieten en vereiste spleetonder deuren.}
+    \label{tab:doorstroom}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llcccc}
+            \toprule
+            \rowcolor{gray!20}
+            \textbf{Van} & \textbf{Naar} & \textbf{Debiet} & \textbf{Debiet} & \textbf{Opp. opening} & \textbf{Spleet} \\
+            \rowcolor{gray!20}
+            ~ & ~ & ($m^3/h$) & ($m^3/s$) & ($cm^2$) & ($cm$) \\
+            \midrule
+            \multicolumn{6}{l}{\textit{\textbf{DOORSTROOM}}} \\
+            \midrule
+            Privé 1 & Living & 72,00 & 0,0200 & 200 & 2,2 \\
+            Privé 2 & Living & 72,00 & 0,0200 & 200 & 2,2 \\
+            Slaapkamer 1 & Hal 1 & 68,10 & 0,0189 & 189 & 2,1 \\
+            Slaapkamer 2 & Hal 2 & 68,10 & 0,0189 & 189 & 2,1 \\
+            Slaapkamer 3 & Hal 1 & 43,30 & 0,0120 & 120 & 1,3 \\
+            Slaapkamer 4 & Hal 2 & 43,30 & 0,0120 & 120 & 1,3 \\
+            Hal 1 & Badkamer 1 & 75,00 & 0,0280 & 208 & 2,3 \\
+            Hal 2 & Badkamer 2 & 75,00 & 0,0280 & 208 & 2,3 \\
+            Living & Open keuken & --- & --- & / & / \\
+            Hal 1 & Techn. ruimte & 50,00 & 0,0139 & 139 & 1,5 \\
+            Hal 2 & Hal 1 & 516,80 & 0,1435 & 1435 & 15,9 \\ % Voorbeeldcorrectie op basis van logica
+            \midrule
+            \rowcolor{gray!20}
+            \textbf{Totaal} & ~ & \textbf{516,80} & ~ & ~ & ~ \\
+            \bottomrule
+        \end{tabular}
+    }
+\end{table}
+
+
 
 \subsection{Dimensionering van de kanalen}
 Bij de predimensionering van de luchtkanalen is de luchtsnelheid ($v_{max}$) als primair ontwerpcriterium gebruikt, met als doel drukverliezen en stromingsgeluid in het netwerk te minimaliseren. Voor de hoofdleidingen wordt een maximale snelheid van \qty{3}{\meter\per\sec} aangehouden. Voor de aftakkingen naar de verblijfsruimten is een striktere limiet van \qty{2}{\meter\per\sec} vastgelegd ter bevordering van het akoestisch comfort. Enkel in de technische ruimte mag de afvoer kortstondig oplopen tot \qty{4}{\meter\per\sec}.
@@ -119,15 +184,44 @@ Waarin $A$ de kanaaldoorsnede is [\unit{\square\meter}] en $q_v$ het volumedebie
     d = 2 * \sqrt{\frac{A}{\pi}}
 \end{equation}
 
-Zie Figuur \ref{fig:dimensioneringkanalen} voor de resultaten. 
+Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten. 
 
-\begin{figure}[H]
+\begin{table}[!ht]
     \centering
-    \includegraphics[width=1\linewidth]{figuren/kanaaldimenties.png}
-    \caption{dimensionering kanalen}
-    \label{fig:dimensioneringkanalen}
-\end{figure}
-\FloatBarrier
+    \caption{Dimensionering van de ventilatiekanalen}
+    \label{tab:dimensionering_kanalen}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{llcccc}
+            \toprule
+            \rowcolor{gray!20}
+            \textbf{Van} & \textbf{Naar} & \textbf{$v_{max}$} & \textbf{Debiet} & \textbf{Diameter} & \textbf{Toegepaste diam.} \\
+            \rowcolor{gray!20}
+            ~ & ~ & ($m/s$) & ($m^3/h$) & ($mm$) & ($mm$) \\
+            \midrule
+            Open keuken & Afvoer beneden & 2 & 116,8 & 143,7 & 160 \\
+            Hal 1 & Slaapkamer 1 & 2 & 68,1 & 109,7 & 125 \\
+            Hal 2 & Slaapkamer 2 & 2 & 68,1 & 109,7 & 125 \\
+            Hal 1 & Slaapkamer 3 & 2 & 43,3 & 87,5 & 100 \\
+            Hal 2 & Slaapkamer 4 & 2 & 43,3 & 87,5 & 100 \\
+            Toevoer beneden & Privé 1 & 2 & 72,0 & 112,8 & 125 \\
+            Toevoer beneden & Privé 2 & 2 & 72,0 & 112,8 & 125 \\
+            Badkamers & Tussenstuk badk. & 2 & 75,0 & 115,2 & 125 \\
+            Toevoer beneden & Living & 2 & 150,0 & 162,9 & 160 \\
+            Tussenstuk badk. & Techn. ruimte & 3 & 150,0 & 133,0 & 160 \\
+            Hal 1 & Techn. ruimte & 3 & 100,0 & 108,6 & 125 \\
+            Hal 2 & Techn. ruimte & 3 & 100,0 & 108,6 & 125 \\
+            Afvoer beneden & Techn. afvoer & 3 & 116,8 & 117,3 & 125 \\
+            Techn. afvoer & Ventilatie-unit & 4 & 516,8 & 213,8 & 250 \\
+            Techn. ruimte & Toevoer beneden & 3 & 260,8 & 175,3 & 180 \\
+            Ventilatie-unit & Techn. ruimte & 4 & 516,8 & 213,8 & 250 \\
+            Techn. ruimte & Techn. afvoer & 4 & 200,0 & 133,0 & 125 \\
+            Techn. ruimte & Hal 1/2 & 3 & 111,4 & 114,6 & 125 \\
+            \bottomrule
+        \end{tabular}
+    }
+\end{table}
+
+
 
 \section{Thermisch ontwerp}
 
@@ -259,7 +353,36 @@ De resultaten van deze berekening worden gegeven in figuur \ref{fig:infiltratiev
     \caption{infiltratie verliezen}
     \label{fig:infiltratieverliezen}
 \end{figure}
+
+\subsection{opwarmingsvermogen}
+
+In dit onderzoek wordt het opwarmvermogen (opwarmtoeslag) buiten beschouwing gelaten bij de berekening van de totale warmteverliezen. Deze keuze is gefundeerd op de huidige technologische ontwikkelingen binnen de klimaatbeheersing. Moderne verwarmingssystemen worden gekenmerkt door een laag dimensioneringsvermogen en het gebruik van geavanceerde regeltechnieken, waardoor piekbelastingen tot een minimum worden beperkt. Het incorporeren van een additioneel opwarmvermogen zou in deze context resulteren in een significante overdimensionering van de warmtepomp, wat de efficiëntie van de installatie nadelig beïnvloedt.
+
+\subsection{Totaal te installeren verwarmingsvermogen}
+
+Het totaal te installeren verwarmingsvermogen ($\Phi_{HL}$) per ruimte vertegenwoordigt de maximale warmtebehoefte waaraan de verwarmingsinstallatie moet voldoen om de gewenste ontwerpbinnentemperatuur te handhaven in ontwerpomstandigheden. Dit nominale vermogen is de som van de berekende transmissieverliezen ($\Phi_T$), de totale ventilatie- en infiltratieverliezen ($\Phi_V$) en een eventueel vereist extra opwarmingsvermogen ($\Phi_{RH}$):
+
+\begin{equation}
+    \Phi_{HL} = \Phi_T + \Phi_V + \Phi_{RH}
+\end{equation}
+
+Gezien het voorliggende ontwerp gebruikmaakt van een warmtepomp als opwekker, is een continu stookregime op lage temperatuur sterk aangewezen om de efficiëntie (SPF) te maximaliseren en overdimensionering te voorkomen. Nachtverlaging wordt om deze reden vermeden, waardoor het extra opwarmingsvermogen ($\Phi_{RH}$) in deze berekening voor alle lokalen op 0 W is gesteld. De benodigde warmteafgifte per lokaal resulteert zodoende puur uit de compensatie van transmissie- en ventilatieverliezen. Het totale warmteverlies is te zien in Tabel \ref{tab:samenvatting_verliezen}.
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lr} % l = links uitgelijnd (tekst), r = rechts uitgelijnd (getallen)
+\toprule
+\rowcolor{gray!20} \textbf{Omschrijving} & \textbf{Waarde [W]} \\ \midrule
+Totale transmissieverlies $\phi_{T,i}$ & 4264,06 \\
+Totale ventilatieverlies $\phi_{V,i}$  & 442,50 \\ \midrule
+\textbf{Totaal warmteverlies $\phi_{HL,i}$} & \textbf{4706,56} \\ \bottomrule
+\end{tabular}
+\caption{Samenvatting van de totale warmteverliezen.}
+\label{tab:samenvatting_verliezen}
+\end{table}
+
 \subsection{Evenwichtstemperatuur}
+
 
 \section{Hydraulisch ontwerp}
 
@@ -280,13 +403,16 @@ Het waterdebiet dat door een radiator stroomt kan berekend worden via volgende f
     \label{eq:placeholder_label}
 \end{equation}
 met:
-Phi het werkelijk afgegeven vermogen van de radiator
-
-C de specifieke warmtecapaciteit van water
-
-In de noemer het verschil van de ontwerpvertrektemperatuur en de ontwerpretourtemperatuur.
-
-Bij een gemiddelde watertemperatuur van 40°C vindt men in tabel A.1 uit het WTCB Rapport 14 dat de waarde van c gelijk is aan 4179 J/kgK. 
+\begin{equation*}
+\begin{aligned}
+    &\Phi : \text{Het werkelijk afgegeven vermogen van de radiator} \\
+    &c : \text{De specifieke warmtecapaciteit van water} \\
+    &\theta_{w,i} = \text{Ontwerpvertrektemperatuur} \\
+    &\theta_{w,r} = \text{Ontwerpretourtemperatuur} \\
+    \\
+\end{aligned}
+\end{equation*}
+Bij een gemiddelde watertemperatuur van 40°C vindt men in tabel A.1 uit het WTCB Rapport 14 dat de waarde van c gelijk is aan 4179 J/kgK \qty{4179}{\joule\per\kilo\gram\per\kelvin} 
 
 De benodigde waterdebieten voor de radiatoren wordt gegeven in volgende tabel:
 
@@ -308,5 +434,13 @@ Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de 
     D_i=\sqrt{\frac{q_{m,L}\left(3.54 \cdot 10^{-4}\right)}{v_{max}\rho}}
 \end{equation}
 
+\newpage
+\appendix
+\section{Uitgebreide berekening transmissieverliezen}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{alletransmissieverliezen.png}
+    \label{fig:placeholder}
+\end{figure}
 
 \end{document}

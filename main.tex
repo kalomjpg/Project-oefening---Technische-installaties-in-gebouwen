@@ -329,30 +329,36 @@ De resultaten van deze berekeningen worden gegeven in volgende tabel:
 
 
 \subsubsection{Infiltratie ventilatieverliezen}
-De infiltratie verliezen worden berekend per lokaal aan de hand van volgende formule:
-\begin{equation}
-    \Phi_{inf} = H_{inf} * (\theta_{i} - \theta_{eb})
-    \label{eq: infilatratieverliezen}
-\end{equation}
+De infiltratieverliezen worden berekend per lokaal aan de hand van de volgende formule:
+\begin{equation*}
+    \Phi_{inf} = H_{inf} \cdot (\theta_{i} - \theta_{e})
+\end{equation*}
 
-met:
-
-\begin{equation}
+waarbij de infiltratie-coëfficiënt berekend wordt als:
+\begin{equation*}
 \begin{aligned}
-    &H_{inf} = 0,34 * (0,15*v50*A_t) \\
-    &v50 : \text{Het oppervlakte specifiek lekdebiet bij 50} \unit{\pascal} \\
-    &A_t = \text{Het warmteverlies oppervlak}
+    H_{inf} &= 0,34 \cdot (0,15 \cdot v_{50} \cdot A_t) \\
+    v_{50} &: \text{Het oppervlakte specifiek lekdebiet bij 50 } \unit{\pascal} \\
+    A_t &: \text{Het warmteverliesoppervlak van de ruimte}
 \end{aligned}
-\end{equation}
-    
-De resultaten van deze berekening worden gegeven in figuur \ref{fig:infiltratieverliezen}
+\end{equation*}
 
-\begin{figure}
-    \centering
-    \includegraphics[width=1\linewidth]{infiltratieverliezen.png}
-    \caption{infiltratie verliezen}
-    \label{fig:infiltratieverliezen}
-\end{figure}
+\begin{table}[!ht]
+\centering
+\small
+\caption{Resultaten van de berekende infiltratieverliezen.}
+\label{tab:infiltratieverliezen}
+\begin{tabularx}{\textwidth}{X c c c c c c}
+\toprule
+\rowcolor{gray!20}
+\textbf{Ruimte} & \textbf{$A_t$ [$m^2$]} & \textbf{$v_{50}$} & \textbf{$H_{inf}$ [W/K]} & \textbf{$\theta_i$ [$^\circ$C]} & \textbf{$\theta_x$ [$^\circ$C]} & \textbf{$\Phi_{V,inf}$ [W]} \\ \midrule
+Grote slaapkamer & 15,27 & 4 & 3,11 & 18 & -7 & 77,87 \\
+Kleine slaapkamer & 8,49 & 4 & 1,73 & 18 & -7 & 43,30 \\
+Badkamer & 18,02 & 4 & 3,68 & 24 & -7 & 113,95 \\
+Leefruimte & 62,54 & 4 & 12,76 & 20 & -7 & 344,47 \\
+Private woonruimte & 43,45 & 4 & 8,86 & 20 & -7 & 239,32 \\ \bottomrule
+\end{tabularx}
+\end{table}
 
 \subsection{opwarmingsvermogen}
 

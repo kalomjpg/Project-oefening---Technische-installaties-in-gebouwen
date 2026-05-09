@@ -318,6 +318,7 @@ Toevoer via ventilatiesysteem D met warmteterugwinning:
     \theta_{m,\mathrm{ex}} = \frac{\sum_j \left( \dot{V}_{\mathrm{ex},j} \cdot \theta_{i,j} \right)}{\sum_j \dot{V}_{\mathrm{ex},j}}
     \label{eq:placeholder_label}
 \end{equation}
+De effectiviteit van de warmtewisselaar is terug te vinden in de technische fiche van het ventilatiesysteem (zie bijlage).
 De resultaten van deze berekeningen worden gegeven in volgende tabel:
 
 \begin{figure}[H]
@@ -397,7 +398,7 @@ Totale ventilatieverlies $\phi_{V,i}$  & 442,50 \\ \midrule
 \subsection{Selectie van radiatoren}
 Er wordt gekozen voor een temperatuurregime van 45/35. De meeste technische fiches voor radiatoren worden gegeven aan een regime 75/65/20. Bij het selecteren van de radiatoren wordt hiermee rekening gehouden door correctiefactoren (f1) te gebruiken. In de technische fiche die hier gehanteerd wordt (zie bijlage) staat op p.154 een tabel met correctiefactoren. Naargelang de plaatsing moet ook een correctiefactor gebruikt worden (f2). Aangezien er geen afwijkende opstellingen zijn, is deze factor gelijk aan 1.
 
-Indien het warmteverlies van het lokaal gekend is, weet men ook de benodigde warmteafgifte bij het waterregime dat gehanteerd wordt (45/35). Bijvoorbeeld in de badkamer is een warmteafgifte van 654,1 Watt nodig bij een waterregime van 45/35. De badkamer heeft een binnentemperatuur van 24°C. In de tabel van de correctiefactoren uit de technische fiche vindt men dan een correctiefactor gelijk aan 4,58. Men vermenigvuldigd de benodigde warmteafgifte met de correctiefactor waardoor men dan de genormaliseerde benodigde warmteafgifte vindt (bij een regime 75/65/20). In de badkamer bedraagt de genormaliseerde benodigde warmteafgite 2995.769 Watt. Met deze waarde kan gezocht worden naar een geschikte radiator voor dit lokaal. De radiatoren die hier gekozen worden zijn terug te vinden op p.18-19 in de technische fiche in bijlage. Aangezien de radiatoren onder de ramen geplaatst worden, wordt er telkens rekening gehouden met de hoogte zodat deze niet voor het raam komen te staan. In de badkamer wordt gekozen voor een radiator type 33 met een hoogte van 900 mm een breedte van 1100mm. Eens een radiator gekozen is, kan men dan de werkelijke warmtafgifte gaan berekenen. 
+Indien het warmteverlies van het lokaal gekend is, weet men ook de benodigde warmteafgifte bij het waterregime dat gehanteerd wordt (45/35). Bijvoorbeeld in de badkamer is een warmteafgifte van 700,91 Watt nodig bij een waterregime van 45/35. De badkamer heeft een binnentemperatuur van 24°C. In de tabel van de correctiefactoren uit de technische fiche vindt men dan een correctiefactor gelijk aan 4,58. Men vermenigvuldigd de benodigde warmteafgifte met de correctiefactor waardoor men dan de genormaliseerde benodigde warmteafgifte vindt (bij een regime 75/65/20). In de badkamer bedraagt de genormaliseerde benodigde warmteafgite 3210,174 Watt. Met deze waarde kan gezocht worden naar een geschikte radiator voor dit lokaal. De radiatoren die hier gekozen worden zijn terug te vinden op p.18-19 in de technische fiche in bijlage. Aangezien de radiatoren onder de ramen geplaatst worden, wordt er telkens rekening gehouden met de hoogte zodat deze niet voor het raam komen te staan. In de badkamer wordt gekozen voor een radiator type 33 met een hoogte van 900 mm een breedte van 1100mm. Eens een radiator gekozen is, kan men dan de werkelijke warmtafgifte gaan berekenen. 
 Deze berekeningen worden gedaan voor elke ruimte waar een radiator geplaatst wordt en kan men vinden in volgende tabel: 
 
 
@@ -425,7 +426,180 @@ De benodigde waterdebieten voor de radiatoren wordt gegeven in volgende tabel:
 \subsection{Watersnelheden}
 
 \subsection{Dimensioneren van warmteleidingen}
- Aangezien we voor de radiatoren in de bovenverdieping het waterregime 45/35 gebruiken rekenen we verder met een gemiddelde watertemperatuur van 40°C in de leidingen en een volumemassa van \qty{4179}{\joule\per\kilo\gram\per\kelvin}.
+ Aangezien we voor de radiatoren in de bovenverdieping het waterregime 45/35 gebruiken. We vinden in tabel A.1 van WTCB-rapport 14 voor een gemiddelde watertemperatuur van 40°C in de leidingen een volumemassa van \qty{992,2}{\joule\per\kilo\gram\per\kelvin}.
+
+ Naast de kring naar de vloerverwarming onderscheiden drie verschillende kringen (zie Figuur \ref{fig:axo leidingen}): kring A bedient de radiator in de grote slaapkamer, kring B bedient deze in de kleine slaapkamer en kring C deze in de badkamer. De overige kringen (D, E en F) zijn volledig analoog ten gevolge van de symmetrie van het grondplan.
+
+Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de bekomen waterdebieten. De formule uit het WTCB Rapport 14 p.94 voor het berekenen van de watersnelheid in een buisstuk hebben we hieronder omgevormd naar de binnendiameter $D_{i}$:
+\begin{equation}
+    D_i=\sqrt{\frac{q_{m,L}\left(3.54 \cdot 10^{-4}\right)}{v_{max}\rho}}
+\end{equation}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Overzicht van de buiskenmerken per kring.}
+    \label{tab:buiskenmerken}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{l l l c c c c c}
+            \toprule
+            \rowcolor{gray!20}
+            \textbf{Kring} & \textbf{Buis} & \textbf{Materiaal} & \textbf{Lengte} & \textbf{Debiet} & \textbf{Diameter} & \textbf{Werk. diam.} & \textbf{Snelheid} \\
+            \rowcolor{gray!20}
+            ~ & ~ & ~ & [m] & [kg/h] & [m] & [m] & [m/s] \\
+            \midrule
+            A & A1 & Kunststof & 1,01 & 53,67 & 0,0095 & 0,010 & 0,45 \\
+            B & B1 & Kunststof & 0,92 & 23,28 & 0,0063 & 0,008 & 0,31 \\
+            C & C1 & Kunststof & 0,70 & 61,07 & 0,0102 & 0,010 & 0,52 \\
+            \bottomrule
+        \end{tabular}
+    }
+\end{table}
+
+\subsection{Berekening van de drukverliezen}
+
+Om de totale drukval in het leidingnetwerk en specifiek over de meest belaste kring te bepalen, worden de lineaire en plaatselijke drukverliezen in kaart gebracht conform de methodiek uit het WTCB-Rapport 14. 
+
+\subsubsection{Lineaire drukverliezen}
+Door wrijving van het stromende water tegen de buiswand ontstaan lineaire drukverliezen ($\Delta p_L$), welke evenredig zijn met de lengte van het leidingstuk ($L$):
+\begin{equation}
+    \Delta p_L = R \cdot L
+\end{equation}
+Waarin $R$ het lineaire drukverlies per lengte-eenheid is [Pa/m], gedefinieerd als:
+\begin{equation}
+    R = \lambda \cdot \frac{1}{D_i} \cdot \frac{\rho \cdot v^2}{2}
+\end{equation}
+
+De wrijvingscoëfficiënt $\lambda$ is afhankelijk van de oppervlakteruwheid van het buismateriaal ($\varepsilon$) en de aard van de stroming. Dit laatste wordt bepaald door het dimensieloze getal van Reynolds ($Re$):
+\begin{equation}
+    Re = \frac{v \cdot D_i}{\nu}
+\end{equation}
+Bij het gehanteerde waterregime met een gemiddelde temperatuur van $40~^\circ\text{C}$ bedraagt de kinematische viscositeit ($\nu$) $0,654 \cdot 10^{-6} \text{ m}^2/\text{s}$ en de volumemassa ($\rho$) $992,2 \text{ kg/m}^3$.
+
+Voor een laminaire stroming ($Re < 2200$) is de wrijvingscoëfficiënt:
+\begin{equation}
+    \lambda = \frac{64}{Re}
+\end{equation}
+Voor een turbulente stroming ($Re > 3200$) wordt volgende benadering gebruikt:
+\begin{equation}
+    \lambda = \frac{0,25}{\left[ \log \left( \frac{\varepsilon}{3,7 \cdot D_i} + \frac{5,74}{Re^{0,9}} \right) \right]^2}
+\end{equation}
+
+We kunnen ook echter voor het lineair drukverlies per lengte eenheid gaan kijken naar de toebehorende waarde uit tabel A7 van het WTCB-rapport. Het resultaat hiervan is te vinden in tabel \ref{tab:lineaire_drukverliezen}.
+
+
+\begin{table}[!ht]
+    \centering
+    \caption{Overzicht van de lineaire drukverliezen.}
+    \label{tab:lineaire_drukverliezen}
+    \begin{tabular}{cc}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{Lineair drukverlies per} & \textbf{Lineair drukverlies} \\
+        \rowcolor{gray!20}
+        \textbf{lengte-eenheid} & [\unit{\pascal\per\meter}] \\
+        \midrule
+        400 & 405,60 \\
+        210 & 192,36 \\
+        450 & 313,20 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Plaatselijke drukverliezen}
+Bij veranderingen in stroomrichting of doorsnede, zoals bij bochten, afsluitkranen, T-stukken en radiatoren, treden plaatselijke drukverliezen ($\Delta p_Z$) op:
+\begin{equation}
+    \Delta p_Z = \Sigma\zeta \cdot \frac{\rho \cdot v^2}{2}
+    \label{eq: plaatselijkedrukverliezen}
+\end{equation}
+Hierbij is $\Sigma\zeta$ de som van de plaatselijke drukverliescoëfficiënten voor een specifiek leidingstuk deze kunen we terugvinden in tabel \ref{tab:plaatselijke_drukverliezen}. De resultaten aan de hand van \ref{eq: plaatselijkedrukverliezen} kunnen we vinden in tabel \ref{tab:plaatselijke_drukverliezen_pa}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Overzicht van de plaatselijke drukverliescoëfficiënten per kring.}
+    \label{tab:plaatselijke_drukverliezen}
+    \begin{tabularx}{\textwidth}{l l X c c}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{Kring} & \textbf{Buis} & \textbf{Installatieonderdeel} & \textbf{$\zeta$ [-]} & \textbf{$\Sigma \zeta$} \\
+        \midrule
+        --- & --- & Terugslagklep & 6,0 & \textbf{22,0} \\
+        ~   & ~   & Pomp          & 10,0 & ~ \\
+        ~   & ~   & Terugslagklep & 6,0 & ~ \\
+        \midrule
+        A & A1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        ~ & ~  & Ronde bocht & 0,5 & ~ \\
+        ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
+        ~ & ~  & Radiator & 2,5 & ~ \\
+        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
+        ~ & ~  & Afsluitkraan & 6,0 & ~ \\
+        ~ & ~  & Collector (retour) & 1,0 & ~ \\
+        \midrule
+        B & B1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        ~ & ~  & Ronde bocht & 0,5 & ~ \\
+        ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
+        ~ & ~  & Radiator & 2,5 & ~ \\
+        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
+        ~ & ~  & Afsluitkraan & 6,0 & ~ \\
+        ~ & ~  & Collector (retour) & 1,0 & ~ \\
+        \midrule
+        C & C1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        ~ & ~  & Ronde bocht & 0,5 & ~ \\
+        ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
+        ~ & ~  & Radiator & 2,5 & ~ \\
+        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
+        ~ & ~  & Afsluitkraan & 6,0 & ~ \\
+        ~ & ~  & Collector (retour) & 1,0 & ~ \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[!ht]
+    \centering
+    \caption{Overzicht van de berekende plaatselijke drukverliezen per kring.}
+    \label{tab:plaatselijke_drukverliezen_pa}
+    \begin{tabular}{cc}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{$\Sigma \zeta$ per kring/buis} & \textbf{Plaatselijk drukverlies} \\
+        \rowcolor{gray!20}
+        \textbf{[-]} & [\unit{\pascal}] \\
+        \midrule
+        15,0 & 1537,87 \\
+        15,0 & 706,67 \\
+        15,0 & 1991,66 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsubsection{Totale drukverliezen en hoofdkring}
+Het totale drukverlies per kring ($\Delta p_{tot}$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen:
+\begin{equation}
+    \Delta p_{tot} = \Delta p_L + \Delta p_Z
+\end{equation}
+Na berekening van alle kringen wordt de hoofdkring geïdentificeerd. Dit is het kritieke leidingtracé met de hoogste totale stromingsweerstand, wat bepalend is voor de minimale opvoerhoogte van de circulatiepomp.
+
+\begin{table}[!ht]
+    \centering
+    \caption{Overzicht van de berekende plaatselijke drukverliezen per kring.}
+    \label{tab:plaatselijke_drukverliezen_pa}
+    \begin{tabular}{cc}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{Kring} & \textbf{Plaatselijk drukverlies} \\
+        \rowcolor{gray!20}
+        \textbf & [\unit{\pascal}] \\
+        \midrule
+        A & 1943,474651 \\
+        B & 899,0340293 \\
+        C & 2304,864344 \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+
+We kunnen hieruit afleiden dat kring C onze hoofdkring is.
+
+ 
  \begin{figure}
     \centering
     \includegraphics[width=1\linewidth]{figuren/axo TIG leidingen 3.pdf}
@@ -433,12 +607,45 @@ De benodigde waterdebieten voor de radiatoren wordt gegeven in volgende tabel:
     \caption{Axonometrie warmteleidingen}
     \label{fig:axo leidingen}
 \end{figure}
-Naast de kring naar de vloerverwarming onderscheiden drie verschillende kringen (zie Figuur \ref{fig:axo leidingen}): kring A bedient de radiator in de grote slaapkamer, kring B bedient deze in de kleine slaapkamer en kring C deze in de badkamer. De overige kringen (D, E en F) zijn volledig analoog ten gevolge van de symmetrie van het grondplan.
 
-Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de bekomen waterdebieten. De formule uit het WTCB Rapport 14 p.94 voor het berekenen van de watersnelheid in een buisstuk hebben we hieronder omgevormd naar de binnendiameter $D_{i}$:
+\subsection{Hydraulisch inregelen van de bijkringen}
+
+Water volgt in een leidingnetwerk van nature de weg van de minste weerstand. Zonder correcte hydraulische inregeling zal er een te groot waterdebiet door de kortere, minder belaste kringen stromen, wat leidt tot oververhitting in die ruimtes en onderverwarming in de ruimtes aan het einde van het netwerk. Om dit hydraulisch onevenwicht te corrigeren, moet de stromingsweerstand van elke bijkring kunstmatig verhoogd worden tot deze exact gelijk is aan de ontwerpdrukval van de hoofdkring.
+
+Het in te regelen extra drukverschil ($\Delta p_{inregel}$) voor een specifieke bijkring wordt berekend door het theoretische drukverlies van die bijkring ($\Delta p_{bijkring}$) af te trekken van het totale drukverlies van de hoofdkring ($\Delta p_{hoofdkring}$):
 \begin{equation}
-    D_i=\sqrt{\frac{q_{m,L}\left(3.54 \cdot 10^{-4}\right)}{v_{max}\rho}}
+    \Delta p_{inregel} = \Delta p_{hoofdkring} - \Delta p_{bijkring}
 \end{equation}
+
+Dit resterende drukverlies wordt in de praktijk weggewerkt door het instellen van een specifieke voorinstelling op de radiatorkraan van de desbetreffende bijkring. Om dit te kunnen bepalen, worden eerst de lineaire en plaatselijke drukverliezen van de gekozen bijkring berekend via dezelfde methodiek als toegepast bij de hoofdkring. Voor dit berekenen we enkel bijkring A om repetitieve berekening te vermijden. 
+
+\subsubsection{Inregeling van bijkring A}
+
+Voor de berekening van de hydraulische inregeling is bijkring A geselecteerd. Het theoretische drukverlies van deze bijkring ($\Delta p_A$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen, wat resulteert in 1943,47 Pa. 
+
+Het extra in te regelen drukverschil ($\Delta p_{inregel}$) om deze bijkring in evenwicht te brengen met de ontwerpdrukval van de hoofdkring (kring C, met een totale drukval van 2304,86 Pa) wordt als volgt bepaald:
+\begin{equation}
+    \Delta p_{inregel} = \Delta p_{C} - \Delta p_{A} = 2304,86 \text{ Pa} - 1943,47 \text{ Pa} = 361,39 \text{ Pa}
+\end{equation}
+
+Dit resterende drukverschil zal in het uiteindelijke ontwerp worden weggewerkt door het instellen van de correcte voorinstelling op de thermostatische radiatorkraan van de desbetreffende kring.
+
+\subsubsection{Bepaling van de kraanvoorinstelling}
+
+Om het hydraulisch evenwicht in de praktijk te realiseren, wordt het berekende extra drukverschil over de bijkring weggewerkt door middel van een specifieke voorinstelling op de thermostatische radiatorkraan [1]. Voor bijkring A bedraagt dit in te regelen drukverschil ($\Delta p_{inregel}$) $361,39 \text{ Pa}$, oftewel afgerond $0,36 \text{ kPa}$. 
+
+Het benodigde massadebiet ($q_{m,rad}$) voor het verwarmingslichaam in deze kring (de kleine slaapkamer) is eerder vastgesteld op $53,67 \text{ kg/h}$, wat in de praktijk gelijkgesteld mag worden aan een volumedebiet van circa $54 \text{ l/h}$. 
+
+Aan de hand van de karakteristieke nomogrammen voor radiatorkranen (conform de ontwerprichtlijnen uit het WTCB-Rapport 14) kan de correcte kraanstand worden bepaald. Het snijpunt van het ontwerpdebiet ($54 \text{ l/h}$) en het te creëren extra drukverlies ($0,36 \text{ kPa}$) resulteert in het voorliggende ontwerp in \textbf{stand 5} (zie figuur\ref{fig:drukverliesthermostaatkraan}). Deze voorinstelling garandeert dat de betreffende bijkring de exacte ontwerpweerstand levert, waardoor het waterdebiet correct verdeeld wordt en oververhitting van deze kortere kring wordt voorkomen.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{figuren/Schermafbeelding 2026-05-09 135007.png}}
+    \caption{Drukverliesdiagram voor een thermostaatkraan met een nominale
+diameter DN15 (1/2”)}
+    \label{fig:drukverliesthermostaatkraan}
+\end{figure}
+
 
 \newpage
 \appendix
@@ -448,5 +655,7 @@ Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de 
     \includegraphics[width=1\linewidth]{alletransmissieverliezen.png}
     \label{fig:placeholder}
 \end{figure}
+
+
 
 \end{document}

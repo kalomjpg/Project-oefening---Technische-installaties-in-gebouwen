@@ -184,7 +184,14 @@ Waarin $A$ de kanaaldoorsnede is [\unit{\square\meter}] en $q_v$ het volumedebie
     d = 2 * \sqrt{\frac{A}{\pi}}
 \end{equation}
 
-Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten. 
+Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten en figuur \ref{fig:ventilatietracé} voor het ventilatietracé. 
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{ventilatietracéprintoverleaf.pdf}
+    \caption{ventilatietracé}
+    \label{fig:ventilatietracé}
+\end{figure}
 
 \begin{table}[!ht]
     \centering
@@ -269,17 +276,20 @@ Binnenmuur (niet dragend) & Hal & 0,28 & 10,83 & 16 & 2,99 & 11,97 \\ \midrule
 
 \begin{table}[H]
 \centering
+\small
 \caption{Samenvatting totale transmissieverliezen per ruimte.}
 \label{tab:transmissie_overzicht}
 \begin{tabular}{lc}
-\hline
+\toprule
 \rowcolor{gray!20}
-\textbf{Ruimte} & \textbf{$\Phi_{T,tot}$ [W]} \\ \hline
-Privé woonruimte 1 & 562,25 \\
-Kleine slaapkamer & 196,63 \\
-Badkamer & 351,53 \\
+\textbf{Ruimte} & \textbf{$\Phi_{T,\text{tot}}$} \\
+\rowcolor{gray!20}
+& \scriptsize[W] \\ \midrule
+Privé woonruimte 1  & 562,25 \\
+Kleine slaapkamer   & 196,63 \\
+Badkamer            & 351,53 \\
 Centrale leefruimte & 1125,62 \\
-Grote slaapkamer & 458,80 \\ \hline
+Grote slaapkamer    & 458,80 \\ \bottomrule
 \end{tabular}
 \end{table}
 
@@ -301,10 +311,10 @@ De gecontroleerde ventilatieverliezen worden berekend per lokaal aan de hand van
     \label{eq:placeholder_label}
 \end{equation}
 Met % Requires: \usepackage{amsmath}
-\begin{equation}
+\begin{equation*}
     H_{\text{vent}, i} = 0.34 \cdot V_{\text{sup}, i}
     \label{eq:placeholder_label}
-\end{equation}
+\end{equation*}
 Vsup is het ontwerptoevoerdebiet van het betreffende lokaal.
 In het geval van doorstroom vanuit een aanpalend lokaal: \begin{equation}
     \theta_{x,\mathrm{vent}} = \theta_i
@@ -318,7 +328,7 @@ Toevoer via ventilatiesysteem D met warmteterugwinning:
     \theta_{m,\mathrm{ex}} = \frac{\sum_j \left( \dot{V}_{\mathrm{ex},j} \cdot \theta_{i,j} \right)}{\sum_j \dot{V}_{\mathrm{ex},j}}
     \label{eq:placeholder_label}
 \end{equation}
-De effectiviteit van de warmtewisselaar is terug te vinden in de technische fiche van het ventilatiesysteem (zie bijlage).
+De effectiviteit van de warmtewisselaar is terug te vinden in de technische fiche van het ventilatiesysteem (zie bijlage \ref{app:effectiviteit_ventilatieunit}).
 De resultaten van deze berekeningen worden gegeven in tabel \ref{tab:warmtewisselaar_extractie} en tabel \ref{tab:gecontroleerde_ventilatieverliezen_detail}.
 
 \begin{table}[H]
@@ -380,9 +390,9 @@ De resultaten van deze berekeningen worden gegeven in tabel \ref{tab:warmtewisse
 
 \subsubsection{Infiltratie ventilatieverliezen}
 De infiltratieverliezen worden berekend per lokaal aan de hand van de volgende formule:
-\begin{equation*}
+\begin{equation}
     \Phi_{inf} = H_{inf} \cdot (\theta_{i} - \theta_{e})
-\end{equation*}
+\end{equation}
 
 waarbij de infiltratie-coëfficiënt berekend wordt als:
 \begin{equation*}
@@ -401,7 +411,9 @@ waarbij de infiltratie-coëfficiënt berekend wordt als:
 \begin{tabularx}{\textwidth}{X c c c c c c}
 \toprule
 \rowcolor{gray!20}
-\textbf{Ruimte} & \textbf{$A_t$ [$m^2$]} & \textbf{$v_{50}$} & \textbf{$H_{inf}$ [W/K]} & \textbf{$\theta_i$ [$^\circ$C]} & \textbf{$\theta_x$ [$^\circ$C]} & \textbf{$\Phi_{V,inf}$ [W]} \\ \midrule
+\textbf{Ruimte} & \textbf{$A_t$} & \textbf{$v_{50}$} & \textbf{$H_{\text{inf}}$} & \textbf{$\theta_i$} & \textbf{$\theta_x$} & \textbf{$\Phi_{V,\text{inf}}$} \\
+\rowcolor{gray!20}
+& \scriptsize[m$^2$] & \scriptsize[-] & \scriptsize[W/K] & \scriptsize[$^\circ$C] & \scriptsize[$^\circ$C] & \scriptsize[W] \\ \midrule
 Grote slaapkamer & 15,27 & 4 & 3,11 & 18 & -7 & 77,87 \\
 Kleine slaapkamer & 8,49 & 4 & 1,73 & 18 & -7 & 43,30 \\
 Badkamer & 18,02 & 4 & 3,68 & 24 & -7 & 113,95 \\
@@ -440,6 +452,8 @@ Totale ventilatieverlies $\phi_{V,i}$  & 442,50 \\ \midrule
 \subsection{Evenwichtstemperatuur}
 
 
+
+
 \section{Hydraulisch ontwerp}
 
 \subsection{Leidingstracé}
@@ -474,21 +488,24 @@ De benodigde waterdebieten voor de radiatoren wordt gegeven in volgende tabel:
 
 \subsection{Watersnelheden}
 
+
+
 \subsection{Dimensioneren van warmteleidingen}
  Aangezien we voor de radiatoren in de bovenverdieping het waterregime 45/35 gebruiken rekenen we verder met een gemiddelde watertemperatuur in de leidingen van 40°C.  Voor deze temperatuur vinden we in tabel A.1 van WTCB-rapport 14 een volumemassa van \qty{992,2}{\joule\per\kilo\gram\per\kelvin}.
 
  Naast de kring naar de vloerverwarming onderscheiden zich drie verschillende kringen (zie Figuur \ref{fig:axo leidingen}): kring A bedient de radiator in de grote slaapkamer, kring B bedient deze in de kleine slaapkamer en kring C deze in de badkamer. De overige kringen (D, E en F) zijn volledig analoog ten gevolge van de symmetrie van het grondplan.
+ Aangezien we de leidingen in de woning niet zichtbaar wilden kozen we voor kunststofleidingen. Dankzij de compactheid van de woning wordt de lengte van de leidingen niet langer dan 12m.
 
 Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de bekomen waterdebieten. De formule uit het WTCB Rapport 14 p.94 voor het berekenen van de watersnelheid in een buisstuk hebben we hieronder omgevormd naar de binnendiameter $D_{i}$:
 \begin{equation}
     D_i=\sqrt{\frac{q_{m,L}\left(3.54 \cdot 10^{-4}\right)}{v_{max}\rho}}
 \end{equation}
 
-Initieel rekenen we met de maximaal toegelaten watersnelheid om de minimale buisdiameter te bepakle
+Initieel rekenen we met de maximaal toegelaten watersnelheid om de minimale buisdiameter te bepalen:
 \begin{equation}
     {v_{max} = 0.5}
 \end{equation} 
-
+We ronden de diameter af naar typische waarden voor kunststofleidingen die in tabel A.7 van WTCB-rapport 14 weergegeven zijn en veranderen ook de watersnelheden. Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten.
 
 \begin{table}[!ht]
     \centering
@@ -539,7 +556,7 @@ Voor een turbulente stroming ($Re > 3200$) wordt volgende benadering gebruikt:
     \lambda = \frac{0,25}{\left[ \log \left( \frac{\varepsilon}{3,7 \cdot D_i} + \frac{5,74}{Re^{0,9}} \right) \right]^2}
 \end{equation}
 
-We kunnen ook echter voor het lineair drukverlies per lengte eenheid gaan kijken naar de toebehorende waarde uit tabel A7 van het WTCB-rapport. Het resultaat hiervan is te vinden in tabel \ref{tab:lineaire_drukverliezen}.
+We kunnen ook echter voor het lineair drukverlies per lengte eenheid gaan kijken naar de toebehorende waarde uit tabel A7 van het WTCB-rapport. De drukHet resultaat hiervan is te vinden in tabel \ref{tab:lineaire_drukverliezen}.
 
 
 \begin{table}[!ht]
@@ -577,31 +594,24 @@ Hierbij is $\Sigma\zeta$ de som van de plaatselijke drukverliescoëfficiënten v
         \rowcolor{gray!20}
         \textbf{Kring} & \textbf{Buis} & \textbf{Installatieonderdeel} & \textbf{$\zeta$ [-]} & \textbf{$\Sigma \zeta$} \\
         \midrule
-        --- & --- & Terugslagklep & 6,0 & \textbf{22,0} \\
-        ~   & ~   & Pomp          & 10,0 & ~ \\
-        ~   & ~   & Terugslagklep & 6,0 & ~ \\
-        \midrule
-        A & A1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        A & A1 & Ronde bocht & 0,5 & \textbf{11,5} \\
         ~ & ~  & Ronde bocht & 0,5 & ~ \\
         ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
         ~ & ~  & Radiator & 2,5 & ~ \\
-        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
         ~ & ~  & Afsluitkraan & 6,0 & ~ \\
         ~ & ~  & Collector (retour) & 1,0 & ~ \\
         \midrule
-        B & B1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        B & B1 & Ronde bocht & 0,5 & \textbf{11,5} \\
         ~ & ~  & Ronde bocht & 0,5 & ~ \\
         ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
         ~ & ~  & Radiator & 2,5 & ~ \\
-        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
         ~ & ~  & Afsluitkraan & 6,0 & ~ \\
         ~ & ~  & Collector (retour) & 1,0 & ~ \\
         \midrule
-        C & C1 & Ronde bocht & 0,5 & \textbf{15,0} \\
+        C & C1 & Ronde bocht & 0,5 & \textbf{11,5} \\
         ~ & ~  & Ronde bocht & 0,5 & ~ \\
         ~ & ~  & Collector (vertrek) & 0,5 & ~ \\
         ~ & ~  & Radiator & 2,5 & ~ \\
-        ~ & ~  & Antiterugslagklep & 4,0 & ~ \\
         ~ & ~  & Afsluitkraan & 6,0 & ~ \\
         ~ & ~  & Collector (retour) & 1,0 & ~ \\
         \bottomrule
@@ -619,9 +629,9 @@ Hierbij is $\Sigma\zeta$ de som van de plaatselijke drukverliescoëfficiënten v
         \rowcolor{gray!20}
         \textbf{[-]} & [\unit{\pascal}] \\
         \midrule
-        15,0 & 1537,87 \\
-        15,0 & 706,67 \\
-        15,0 & 1991,66 \\
+        11,5 & 1307,24 \\
+        11,5 & 1378,35 \\
+        11,5 & 592,76 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -635,18 +645,18 @@ Na berekening van alle kringen wordt de hoofdkring geïdentificeerd. Dit is het 
 
 \begin{table}[!ht]
     \centering
-    \caption{Overzicht van de berekende plaatselijke drukverliezen per kring.}
+    \caption{Overzicht van de berekende totale drukverliezen per kring.}
     \label{tab:plaatselijke_drukverliezen_pa}
     \begin{tabular}{cc}
         \toprule
         \rowcolor{gray!20}
-        \textbf{Kring} & \textbf{Plaatselijk drukverlies} \\
+        \textbf{Kring} & \textbf{totaal drukverlies} \\
         \rowcolor{gray!20}
         \textbf & [\unit{\pascal}] \\
         \midrule
-        A & 1943,474651 \\
-        B & 899,0340293 \\
-        C & 2304,864344 \\
+        A & 1712,84 \\
+        B & 1570,71 \\
+        C & 905,96 \\
         \bottomrule
     \end{tabular}
 \end{table}
@@ -676,7 +686,7 @@ Dit resterende drukverlies wordt in de praktijk weggewerkt door het instellen va
 
 \subsubsection{Inregeling van bijkring A}
 
-Voor de berekening van de hydraulische inregeling is bijkring A geselecteerd. Het theoretische drukverlies van deze bijkring ($\Delta p_A$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen, wat resulteert in 1943,47 Pa. 
+Voor de berekening van de hydraulische inregeling is bijkring A geselecteerd. Het theoretische drukverlies van deze bijkring ($\Delta p_A$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen, wat resulteert in 1712,84 Pa. 
 
 Het extra in te regelen drukverschil ($\Delta p_{inregel}$) om deze bijkring in evenwicht te brengen met de ontwerpdrukval van de hoofdkring (kring C, met een totale drukval van 2304,86 Pa) wordt als volgt bepaald:
 \begin{equation}
@@ -713,8 +723,17 @@ diameter DN15 (1/2”)}
     \label{fig:placeholder}
 \end{figure}
 
-\section{Technische Fiche ventilatiesysteem}
-\label{app:TFventiunit}
+\section{Technische gegevens en effectiviteitsfactor ventilatie-unit}
+\label{app:effectiviteit_ventilatieunit}
+
+\includepdf[
+    pages=-, 
+    scale=0.9, 
+    angle=-90, 
+    pagecommand={\thispagestyle{plain}}
+]{Effectiviteitsfactor_ventilatieunit.pdf}
+
+\section{}
 
 
 \end{document}

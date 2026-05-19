@@ -41,9 +41,9 @@
     \vspace{1cm}
     {\scshape\Large Projectoefening Technische Installaties 2026\par}
     \vspace{1.5cm}
-    {\huge\bfseries Installatieconcept Ham \par}
+    {\huge\bfseries Ontwerp van een residentiële verwarmingsinstallatie en ventilatieconcept \par}
     \vspace{2cm}
-    {\Large Groep 40\par}
+    {\Large Groep 38\par}
     \vfill
     {\large \today \par}
 \end{titlepage}
@@ -184,13 +184,20 @@ Waarin $A$ de kanaaldoorsnede is [\unit{\square\meter}] en $q_v$ het volumedebie
     d = 2 * \sqrt{\frac{A}{\pi}}
 \end{equation}
 
-Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten en figuur \ref{fig:ventilatietracé} voor het ventilatietracé. 
+Zie Tabel \ref{tab:dimensionering_kanalen} voor de resultaten en figuur \ref{fig:ventitraceplan0}, \ref{fig:ventitraceplan1} voor het ventilatietracé. 
 
 \begin{figure}
     \centering
-    \includegraphics[width=1\linewidth]{ventilatietracéprintoverleaf.pdf}
-    \caption{ventilatietracé}
-    \label{fig:ventilatietracé}
+    \includegraphics[width=1\linewidth]{ventilatietraceplan0.pdf}
+    \caption{ventilatietracé plan 0}
+    \label{fig:ventitraceplan0}
+\end{figure}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{ventilatietracéplan1.pdf}
+    \caption{ventilatietracé plan 1}
+    \label{fig:ventitraceplan1}
 \end{figure}
 
 \begin{table}[!ht]
@@ -328,6 +335,10 @@ Toevoer via ventilatiesysteem D met warmteterugwinning:
     \theta_{m,\mathrm{ex}} = \frac{\sum_j \left( \dot{V}_{\mathrm{ex},j} \cdot \theta_{i,j} \right)}{\sum_j \dot{V}_{\mathrm{ex},j}}
     \label{eq:placeholder_label}
 \end{equation}
+Voor de temperatuur van de extractielucht komen we vervolgens uit:
+\begin{equation}
+    \theta_{m,\mathrm{ex}} =19,23 [^\circ C]
+\end{equation}
 De effectiviteit van de warmtewisselaar is terug te vinden in de technische fiche van het ventilatiesysteem (zie bijlage \ref{app:effectiviteit_ventilatieunit}).
 De resultaten van deze berekeningen worden gegeven in tabel \ref{tab:warmtewisselaar_extractie} en tabel \ref{tab:gecontroleerde_ventilatieverliezen_detail}.
 
@@ -338,16 +349,16 @@ De resultaten van deze berekeningen worden gegeven in tabel \ref{tab:warmtewisse
     \begin{tabularx}{\textwidth}{l c c c c c}
         \toprule
         \rowcolor{gray!20}
-        \textbf{Kamer} & \textbf{$V_{\text{ex}}$} & \textbf{$\theta_i$} & \textbf{$V_{\text{ex}} \cdot \theta_i$} & \textbf{Effectiviteit} & \textbf{$\theta_{m,\text{ex}}$} \\
+        \textbf{Kamer} & \textbf{$V_{\text{ex}}$} & \textbf{$\theta_i$} & \textbf{$V_{\text{ex}} \cdot \theta_i$} & \textbf{Effectiviteit}\\
         \rowcolor{gray!20}
-        ~ & [\unit{\cubic\meter\per\hour}] & [$^\circ$C] & [\unit{\cubic\meter\per\hour} $\cdot$ $^\circ$C] & \textbf{warmtewisselaar [-]} & [$^\circ$C] \\
+        ~ & [\unit{\cubic\meter\per\hour}] & [$^\circ$C] & [\unit{\cubic\meter\per\hour} $\cdot$ $^\circ$C] & \textbf{warmtewisselaar [-]}  \\
         \midrule
-        Open keuken       & 116,80 & 20 & 2336,00 & 0,83 & 19,23 \\
-        Badkamer 1        & 75,00  & 24 & 1800,00 & 0,84 & ---   \\
-        Badkamer 2        & 75,00  & 24 & 1800,00 & 0,85 & ---   \\
-        Technische ruimte & 50,00  & 16 & 800,00  & 0,86 & ---   \\
-        Hal 1             & 100,00 & 16 & 1600,00 & 0,87 & ---   \\
-        Hal 2             & 100,00 & 16 & 1600,00 & 0,88 & ---   \\
+        Open keuken       & 116,80 & 20 & 2336,00 & 0,83 \\
+        Badkamer 1        & 75,00  & 24 & 1800,00 & 0,83 \\
+        Badkamer 2        & 75,00  & 24 & 1800,00 & 0,83 \\
+        Technische ruimte & 50,00  & 16 & 800,00  & 0,83 \\
+        Hal 1             & 100,00 & 16 & 1600,00 & 0,83 \\
+        Hal 2             & 100,00 & 16 & 1600,00 & 0,83  \\
         \bottomrule
     \end{tabularx}
 \end{table}
@@ -451,6 +462,34 @@ Totale ventilatieverlies $\phi_{V,i}$  & 442,50 \\ \midrule
 
 \subsection{Evenwichtstemperatuur}
 
+\begin{table}[H]
+\centering
+\small
+\caption{Berekening van de evenwichtstemperatuur ($T_{\text{eq}}$) op basis van de transmissiecoëfficiënten.}
+\label{tab:evenwichtstemperatuur}
+\begin{tabularx}{\textwidth}{X c c c c c}
+\toprule
+\rowcolor{gray!20}
+\textbf{Constructieonderdeel} & \textbf{$U$} & \textbf{Oppervlakte $A$} & \textbf{Temperatuur $\theta$} & \textbf{$H$} & \textbf{$H \cdot T$} \\
+\rowcolor{gray!20}
+& [\unit{\watt\per\square\meter\per\kelvin}] & [\unit{\square\meter}] & [$^\circ$C] & [\unit{\watt\per\kelvin}] & [\unit{\watt}] \\ \midrule
+Muur                     & 1,3000 & 6,60  & 18 & 8,58 & 154,44 \\
+Deur                     & 2,5000 & 1,89  & 18 & 4,73 & 85,05  \\
+Muur                     & 1,3000 & 0,81  & 24 & 1,05 & 25,27  \\
+Deur                     & 2,5000 & 1,89  & 24 & 4,73 & 113,40 \\
+Binnenmuur (niet dragend)& 0,2762 & 10,83 & 20 & 2,99 & 59,83  \\
+Deur                     & 2,5000 & 1,89  & 18 & 4,73 & 85,05  \\
+Binnenmuur (niet dragend)& 0,2762 & 10,83 & 18 & 2,99 & 53,85  \\
+Vloer                    & 0,9119 & 3,60  & 20 & 3,28 & 65,66  \\ \midrule
+\rowcolor{gray!10}
+\textbf{$H_{\text{tot}}$}   & \multicolumn{5}{l}{\qty{33,07}{\watt\per\kelvin}} \\
+\rowcolor{gray!10}
+\textbf{$H_{\text{tot}} \cdot T$} & \multicolumn{5}{l}{\qty{642,54}{\watt}} \\ 
+\rowcolor{gray!10}
+\textbf{$T_{\text{eq}}$}    & \multicolumn{5}{l}{\qty{19,43}{\celsius}} \\ \bottomrule
+\end{tabularx}
+\end{table}
+
 
 
 
@@ -459,10 +498,218 @@ Totale ventilatieverlies $\phi_{V,i}$  & 442,50 \\ \midrule
 \subsection{Leidingstracé}
 
 \subsection{Selectie van radiatoren}
-Er wordt gekozen voor een temperatuurregime van 45/35. De meeste technische fiches voor radiatoren worden gegeven aan een regime 75/65/20. Bij het selecteren van de radiatoren wordt hiermee rekening gehouden door correctiefactoren (f1) te gebruiken. In de technische fiche die hier gehanteerd wordt (zie bijlage) staat op p.154 een tabel met correctiefactoren. Naargelang de plaatsing moet ook een correctiefactor gebruikt worden (f2). Aangezien er geen afwijkende opstellingen zijn, is deze factor gelijk aan 1.
+Er wordt gekozen voor een temperatuurregime van 45/35. De meeste technische fiches voor radiatoren worden gegeven aan een regime 75/65/20. Bij het selecteren van de radiatoren wordt hiermee rekening gehouden door correctiefactoren (f1) te gebruiken. In de technische fiche die hier gehanteerd wordt (zie bijlage \ref)  een tabel met correctiefactoren. Naargelang de plaatsing moet ook een correctiefactor gebruikt worden (f2). Aangezien er geen afwijkende opstellingen zijn, is deze factor gelijk aan 1.
 
-Indien het warmteverlies van het lokaal gekend is, weet men ook de benodigde warmteafgifte bij het waterregime dat gehanteerd wordt (45/35). Bijvoorbeeld in de badkamer is een warmteafgifte van 700,91 Watt nodig bij een waterregime van 45/35. De badkamer heeft een binnentemperatuur van 24°C. In de tabel van de correctiefactoren uit de technische fiche vindt men dan een correctiefactor gelijk aan 4,58. Men vermenigvuldigd de benodigde warmteafgifte met de correctiefactor waardoor men dan de genormaliseerde benodigde warmteafgifte vindt (bij een regime 75/65/20). In de badkamer bedraagt de genormaliseerde benodigde warmteafgite 3210,174 Watt. Met deze waarde kan gezocht worden naar een geschikte radiator voor dit lokaal. De radiatoren die hier gekozen worden zijn terug te vinden op p.18-19 in de technische fiche in bijlage. Aangezien de radiatoren onder de ramen geplaatst worden, wordt er telkens rekening gehouden met de hoogte zodat deze niet voor het raam komen te staan. In de badkamer wordt gekozen voor een radiator type 33 met een hoogte van 900 mm een breedte van 1100mm. Eens een radiator gekozen is, kan men dan de werkelijke warmtafgifte gaan berekenen. 
-Deze berekeningen worden gedaan voor elke ruimte waar een radiator geplaatst wordt en kan men vinden in volgende tabel: 
+Indien het warmteverlies van het lokaal gekend is, weet men ook de benodigde warmteafgifte bij het waterregime dat gehanteerd wordt (45/35). Bijvoorbeeld in de badkamer is een warmteafgifte van 700,91 Watt nodig bij een waterregime van 45/35. De badkamer heeft een binnentemperatuur van 24°C. In de tabel van de correctiefactoren uit de technische fiche vindt men dan een correctiefactor gelijk aan 4,58. Men vermenigvuldigd de benodigde warmteafgifte met de correctiefactor waardoor men dan de genormaliseerde benodigde warmteafgifte vindt (bij een regime 75/65/20). In de badkamer bedraagt de genormaliseerde benodigde warmteafgite 3210,174 Watt. Met deze waarde kan gezocht worden naar een geschikte radiator voor dit lokaal. De radiatoren die hier gekozen worden zijn terug te vinden op p.18-19 in de technische fiche in bijlage \ref. Aangezien de radiatoren onder de ramen geplaatst worden, wordt er telkens rekening gehouden met de hoogte zodat deze niet voor het raam komen te staan. In de badkamer wordt gekozen voor een radiator type 33 met een hoogte van 900 mm een breedte van 1100mm. Eens een radiator gekozen is, kan men dan de werkelijke warmtafgifte gaan berekenen. 
+Deze berekeningen worden gedaan voor elke ruimte waar een radiator geplaatst wordt en kan men vinden in  tabel \ref{tab:warmteafgifte_radiatoren}. De geselecteerde radiatoren worden gegeven in tabel \ref{tab:radiatortypes}.
+
+\begin{table}[H]
+\centering
+\small
+\caption{Totaal warmteverlies per ruimte.}
+\label{tab:warmteverlies}
+
+\begin{tabularx}{0.6\textwidth}{X c}
+\toprule
+\rowcolor{gray!20}
+\textbf{Ruimte} & \textbf{Totaal warmteverlies} \\
+
+\rowcolor{gray!20}
+& \scriptsize[W] \\
+\midrule
+
+Open keuken & -- \\
+
+Badkamer 1 & 700,91 \\
+
+Badkamer 2 & 700,91 \\
+
+Technische ruimte & -- \\
+
+Hal 1 & -- \\
+
+Hal 2 & -- \\
+
+Privé 1 & 801,58 \\
+
+Privé 2 & 801,58 \\
+
+Slaapkamer 1 (groot) & 582,98 \\
+
+Slaapkamer 2 (groot) & 582,98 \\
+
+Slaapkamer 3 (klein) & 269,37 \\
+
+Slaapkamer 4 (klein) & 269,37 \\
+
+Living & -- \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Berekende warmteafgifte en benodigd debiet van de radiatoren.}
+\label{tab:warmteafgifte_radiatoren}
+
+\begin{tabularx}{\textwidth}{X c c c c c}
+\toprule
+\rowcolor{gray!20}
+\textbf{Ruimte} &
+\textbf{Genorm. warmteafgifte} &
+\textbf{$f_1$} &
+\textbf{$f_2$} &
+\textbf{Werkelijke warmteafgifte} &
+\textbf{Benodigd debiet} \\
+
+\rowcolor{gray!20}
+&
+\scriptsize[W] &
+\scriptsize[-] &
+\scriptsize[-] &
+\scriptsize[W] &
+\scriptsize[l/h] \\
+\midrule
+
+Open keuken &
+-- &
+-- &
+-- &
+-- &
+-- \\
+
+Badkamer 1 &
+3247 &
+4,58 &
+1 &
+708,95 &
+61,07 \\
+
+Badkamer 2 &
+3247 &
+4,58 &
+1 &
+708,95 &
+61,07 \\
+
+Technische ruimte &
+-- &
+-- &
+-- &
+-- &
+-- \\
+
+Hal 1 &
+-- &
+-- &
+-- &
+-- &
+-- \\
+
+Hal 2 &
+-- &
+-- &
+-- &
+-- &
+-- \\
+
+Privé 1 &
+3029 &
+3,37 &
+1 &
+898,81 &
+77,43 \\
+
+Privé 2 &
+3029 &
+3,37 &
+1 &
+898,81 &
+77,43 \\
+
+Slaapkamer 1 (groot) &
+1844 &
+2,96 &
+1 &
+622,97 &
+53,67 \\
+
+Slaapkamer 2 (groot) &
+1844 &
+2,96 &
+1 &
+622,97 &
+53,67 \\
+
+Slaapkamer 3 (klein) &
+800 &
+2,96 &
+1 &
+270,27 &
+23,28 \\
+
+Slaapkamer 4 (klein) &
+800 &
+2,96 &
+1 &
+270,27 &
+23,28 \\
+
+Living &
+-- &
+-- &
+-- &
+-- &
+-- \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\begin{table}[H]
+\centering
+\small
+\caption{Geselecteerde radiatortypes per ruimte.}
+\label{tab:radiatortypes}
+
+\begin{tabularx}{0.7\textwidth}{X c}
+\toprule
+\rowcolor{gray!20}
+\textbf{Ruimte} & \textbf{Type radiator} \\
+\midrule
+
+Open keuken & -- \\
+
+Badkamer 1 & 33 (900$\times$1100) \\
+
+Badkamer 2 & 33 (900$\times$1100) \\
+
+Technische ruimte & / \\
+
+Hal 1 & / \\
+
+Hal 2 & / \\
+
+Privé 1 & 33 (500$\times$1600) \\
+
+Privé 2 & 33 (500$\times$1600) \\
+
+Slaapkamer 1 (groot) & 22 (600$\times$1200) \\
+
+Slaapkamer 2 (groot) & 22 (600$\times$1200) \\
+
+Slaapkamer 3 (klein) & 22 (500$\times$600) \\
+
+Slaapkamer 4 (klein) & 22 (500$\times$600) \\
+
+Living & -- \\
+
+\bottomrule
+\end{tabularx}
+\end{table}
+
 
 
 \subsection{Waterdebieten}
@@ -684,24 +931,53 @@ Het in te regelen extra drukverschil ($\Delta p_{inregel}$) voor een specifieke 
 
 Dit resterende drukverlies wordt in de praktijk weggewerkt door het instellen van een specifieke voorinstelling op de radiatorkraan van de desbetreffende bijkring. Om dit te kunnen bepalen, worden eerst de lineaire en plaatselijke drukverliezen van de gekozen bijkring berekend via dezelfde methodiek als toegepast bij de hoofdkring. Voor dit berekenen we enkel bijkring A om repetitieve berekening te vermijden. 
 
-\subsubsection{Inregeling van bijkring A}
+\subsubsection{Inregeling van bijkring C}
 
-Voor de berekening van de hydraulische inregeling is bijkring A geselecteerd. Het theoretische drukverlies van deze bijkring ($\Delta p_A$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen, wat resulteert in 1712,84 Pa. 
+Voor de berekening van de hydraulische inregeling is bijkring C geselecteerd. Het theoretische drukverlies van deze bijkring ($\Delta p_A$) is de som van de respectievelijke lineaire en plaatselijke drukverliezen, wat resulteert in 905,96 Pa. 
 
 Het extra in te regelen drukverschil ($\Delta p_{inregel}$) om deze bijkring in evenwicht te brengen met de ontwerpdrukval van de hoofdkring (kring C, met een totale drukval van 2304,86 Pa) wordt als volgt bepaald:
 \begin{equation}
-    \Delta p_{inregel} = \Delta p_{C} - \Delta p_{A} = 2304,86 \text{ Pa} - 1943,47 \text{ Pa} = 361,39 \text{ Pa}
+    \Delta p_{inregel} = \Delta p_{A} - \Delta p_{C} = 1712,84 \text{ Pa} - 905,96 \text{ Pa} = 806,88 \text{ Pa}
 \end{equation}
 
 Dit resterende drukverschil zal in het uiteindelijke ontwerp worden weggewerkt door het instellen van de correcte voorinstelling op de thermostatische radiatorkraan van de desbetreffende kring.
 
 \subsubsection{Bepaling van de kraanvoorinstelling}
 
-Om het hydraulisch evenwicht in de praktijk te realiseren, wordt het berekende extra drukverschil over de bijkring weggewerkt door middel van een specifieke voorinstelling op de thermostatische radiatorkraan. Voor bijkring A bedraagt dit in te regelen drukverschil ($\Delta p_{inregel}$) $361,39 \text{ Pa}$, oftewel afgerond $0,36 \text{ kPa}$. 
+Om het hydraulisch evenwicht in de praktijk te realiseren, wordt het berekende extra drukverschil over de bijkring weggewerkt door middel van een specifieke voorinstelling op de thermostatische radiatorkraan. Voor bijkring C bedraagt dit in te regelen drukverschil ($\Delta p_{inregel}$) $806,88 \text{ Pa}$, oftewel afgerond $0,81 \text{ kPa}$. 
 
-Het benodigde massadebiet ($q_{m,rad}$) voor het verwarmingslichaam in deze kring (de kleine slaapkamer) is eerder vastgesteld op \qty{53,67}{\kilo\gram\per\hour}, wat in de praktijk gelijkgesteld mag worden aan een volumedebiet van circa \qty{54}{\liter\per\hour}. 
+Het benodigde massadebiet ($q_{m,rad}$) voor het verwarmingslichaam in deze kring (de badkamer) is eerder vastgesteld op \qty{61,07}{\kilo\gram\per\hour}, wat in de praktijk gelijkgesteld mag worden aan een volumedebiet van circa \qty{61,87}{\liter\per\hour}. 
 
-Aan de hand van de karakteristieke nomogrammen voor radiatorkranen (conform de ontwerprichtlijnen uit het WTCB-Rapport 14) kan de correcte kraanstand worden bepaald. Het snijpunt van het ontwerpdebiet (\qty{54}{\liter\per\hour})en het te creëren extra drukverlies (\qty{0,36}{\kilo\pascal}) resulteert in het voorliggende ontwerp in \textbf{stand 5} (zie figuur\ref{fig:drukverliesthermostaatkraan}). Deze voorinstelling garandeert dat de betreffende bijkring de exacte ontwerpweerstand levert, waardoor het waterdebiet correct verdeeld wordt en oververhitting van deze kortere kring wordt voorkomen.
+Aan de hand van de karakteristieke nomogrammen voor radiatorkranen (conform de ontwerprichtlijnen uit het WTCB-Rapport 14) kan de correcte kraanstand worden bepaald. Het snijpunt van het ontwerpdebiet (\qty{61,87}{\liter\per\hour})en het te creëren extra drukverlies (\qty{0,81}{\kilo\pascal}) resulteert in het voorliggende ontwerp in \textbf{stand 3} (zie figuur \ref{fig:drukverliesthermostaatkraan}). Deze voorinstelling garandeert dat de betreffende bijkring de exacte ontwerpweerstand levert, waardoor het waterdebiet correct verdeeld wordt en oververhitting van deze kortere kring wordt voorkomen.
+
+\subsection{Pompselectie}
+ \subsubsection{Leidingskarakteristiek}
+
+\begin{equation}
+    \Delta p_{\text{tot}} = C \cdot q_{m,\text{tot}}^{2} \qquad (\text{Pa})
+\end{equation}
+
+waarbij:
+
+\begin{equation*}
+\begin{aligned}
+&\Delta p_{\text{tot}} : \text{het totale drukverlies van de meest ongunstige radiatorkring} \\
+&q_{m,\text{tot}} : \text{het totale waterdebiet dat door alle radiatorkringen stroomt} \\
+&C : \text{een karakteristieke grootheid voor de installatie waarop de pomp aangesloten is}
+&\text{(in kg}^{-1}\text{·m}^{-1}\text{)}\\
+\end{aligned}
+\end{equation*}
+
+In ons geval is $\Delta p_{\text{tot}}$ gelijk aan \qty{1712,84}{\pascal} en is $q_{m,\text{tot}}$ gelijk aan \qty{365,32}{\kilo\gram\per\hour}
+Dit eenmaal in de formule gestoken, geeft ons als &C 0,012834529
+
+
+
+
+
+
+
+
 
 \begin{figure}
     \centering
@@ -710,8 +986,9 @@ Aan de hand van de karakteristieke nomogrammen voor radiatorkranen (conform de o
 diameter DN15 (1/2”)}
     \label{fig:drukverliesthermostaatkraan}
 \end{figure}
-
-
+\section{Conclusie}
+Deze opdracht leerde ons dat het ontwerp van technische installaties, zowel ventilatiekringgen als warmtekringen, veel invloed heeft op het globaal ontwerp van een gebouw. We zagen ook dat een compact gebouw met een symmetrisch grondplan bepaalde voordelen heeft naar dimensionering toe, zoals de beperkte lengte van kunststofleidingen (12m) en het doorrekenen van identieke kringen. We realiseren ons dat indien de technische ruimte niet centraal in de woning gepositioneerd stond, het dimensioneren van de verschillende kringen 
+We zien ook dat vloerverwarming een groot debiet vereist ten opzichte van radiatoren. 
 \newpage
 \section{Bijlagen}
 \appendix
@@ -733,7 +1010,23 @@ diameter DN15 (1/2”)}
     pagecommand={\thispagestyle{plain}}
 ]{Effectiviteitsfactor_ventilatieunit.pdf}
 
-\section{}
+\section{temperatuurcorrectiefactor}
+\label{app:temperatuurcorrectiefactor}
+
+\includepdf[
+    pages=-,
+    scale=0.9,
+    pagecommand={\thispagestyle{plain}}
+]{p154.pdf}
+
+\section{technischefiche radiatoren}
+\label{app:techficheradiotoren}
+
+\includepdf[
+    pages=-,
+    scale=0.9,
+    pagecommand={\thispagestyle{plain}}
+]{p18_19.pdf}
 
 
 \end{document}

@@ -241,7 +241,7 @@ De transmissieverliezen ($\Phi_T$) doorheen de gebouwschil en naar aangrenzende 
 
 Om overdaad en repetitieve tabellen in dit verslag te vermijden, is de gedetailleerde berekening illustratief uitgeschreven voor één representatieve ruimte, namelijk de centrale leefruimte (Tabel \ref{tab:transmissie_leefruimte}). Voor de overige ruimtes zijn de eindresultaten samengevat in een overzichtstabel (Tabel \ref{tab:transmissie_overzicht}). De volledige rekennota's per lokaal zijn raadpleegbaar in de bijlagen.
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \small
 \caption{Gedetailleerde berekening transmissieverliezen centrale leefruimte ($\theta_i = 20~^\circ\text{C}$).}
@@ -267,7 +267,7 @@ Binnenmuur (niet dragend) & Hal & 0,28 & 10,83 & 16 & 2,99 & 11,97 \\ \midrule
 \end{tabularx}
 \end{table}
 
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \caption{Samenvatting totale transmissieverliezen per ruimte.}
 \label{tab:transmissie_overzicht}
@@ -282,16 +282,16 @@ Centrale leefruimte & 1125,62 \\
 Grote slaapkamer & 458,80 \\ \hline
 \end{tabular}
 \end{table}
-```
+
 
 \subsection{ventilatieverliezen}
 Er wordt gebruik gemaakt van ventilatiesysteem D. Het ventilatiestysteem zorgt zeker voor warmteverliezen. Dit komt echter in beperkte mate voor, aangezien er met systeem D gebruik gemaakt kan worden van gecontroleerde toevoer en afvoer met warmterecuperatie. Naast de gecontroleerde verliezen is er ook sprake van infiltratieverliezen die voorkomen aan de hand van openingen in de gebouwschil. De totale ventilatieverliezen kunnen we dan berekenen door de twee op te tellen aan de hand van volgende formule:
 
 \begin{equation}
-    \Phi_v = H_{vent} * (\theta_{inf} - \theta_{x}) + H_{inf} * (\theta_{int} - \theta_{x}    
+    \Phi_v = H_{vent} * (\theta_{inf} - \theta_{x}) + H_{inf} * (\theta_{int} - \theta_{x} )   
 \end{equation}
 
-Laten we deze twee nu appart berekenen: 
+Laten we deze twee nu apart berekenen: 
 
 \subsubsection{Gecontroleerde ventilatieverliezen}
 De gecontroleerde ventilatieverliezen worden berekend per lokaal aan de hand van volgende formule: 
@@ -319,14 +319,63 @@ Toevoer via ventilatiesysteem D met warmteterugwinning:
     \label{eq:placeholder_label}
 \end{equation}
 De effectiviteit van de warmtewisselaar is terug te vinden in de technische fiche van het ventilatiesysteem (zie bijlage).
-De resultaten van deze berekeningen worden gegeven in volgende tabel:
+De resultaten van deze berekeningen worden gegeven in tabel \ref{tab:warmtewisselaar_extractie} en tabel \ref{tab:gecontroleerde_ventilatieverliezen_detail}.
 
-\begin{figure}[H]
+\begin{table}[H]
     \centering
-    \includegraphics[width=1\linewidth]{gecontroleerdeventilatieverliezen.png}
-    \caption{gecontroleerde ventilatieverliezen}
-    \label{fig:placeholder}
-\end{figure}
+    \caption{Overzicht van de ontwerpeigenschappen van de warmtewisselaar per afvoerruimte.}
+    \label{tab:warmtewisselaar_extractie}
+    \begin{tabularx}{\textwidth}{l c c c c c}
+        \toprule
+        \rowcolor{gray!20}
+        \textbf{Kamer} & \textbf{$V_{\text{ex}}$} & \textbf{$\theta_i$} & \textbf{$V_{\text{ex}} \cdot \theta_i$} & \textbf{Effectiviteit} & \textbf{$\theta_{m,\text{ex}}$} \\
+        \rowcolor{gray!20}
+        ~ & [\unit{\cubic\meter\per\hour}] & [$^\circ$C] & [\unit{\cubic\meter\per\hour} $\cdot$ $^\circ$C] & \textbf{warmtewisselaar [-]} & [$^\circ$C] \\
+        \midrule
+        Open keuken       & 116,80 & 20 & 2336,00 & 0,83 & 19,23 \\
+        Badkamer 1        & 75,00  & 24 & 1800,00 & 0,84 & ---   \\
+        Badkamer 2        & 75,00  & 24 & 1800,00 & 0,85 & ---   \\
+        Technische ruimte & 50,00  & 16 & 800,00  & 0,86 & ---   \\
+        Hal 1             & 100,00 & 16 & 1600,00 & 0,87 & ---   \\
+        Hal 2             & 100,00 & 16 & 1600,00 & 0,88 & ---   \\
+        \bottomrule
+    \end{tabularx}
+\end{table}
+
+\begin{table}[H]
+    \centering
+    \caption{Overzicht van de berekende gecontroleerde ventilatieverliezen per lokaaltransitie.}
+    \label{tab:gecontroleerde_ventilatieverliezen_detail}
+    \resizebox{\textwidth}{!}{
+        \begin{tabular}{l l c c c c c c}
+            \toprule
+            \rowcolor{gray!20}
+            \textbf{Van} & \textbf{Naar} & \textbf{$V_{\text{ex}}$} & \textbf{$V_{\text{sup}}$} & \textbf{$\theta_i$} & \textbf{$H_{\text{vent}}$} & \textbf{$\theta_{x,\text{vent}}$} & \textbf{$\Phi_{V,v,i,k}$} \\
+            \rowcolor{gray!20}
+            ~ & ~ & [\unit{\cubic\meter\per\hour}] & [\unit{\cubic\meter\per\hour}] & [$^\circ$C] & [\unit{\cubic\meter\per\hour}] & [$^\circ$C] & [\unit{\watt}] \\
+            \midrule
+            Open keuken & Buiten & 116,80 & 144,00 & 20 & 48,96 & 14,77 & 256,18 \\
+            Badkamer 1 & Buiten & 75,00 & 75,00 & 24 & 25,50 & 14,77 & 235,43 \\
+            Badkamer 2 & Buiten & 75,00 & 75,00 & 24 & 25,50 & 14,77 & 235,43 \\
+            Technische ruimte & Buiten & 50,00 & 50,00 & 16 & 17,00 & 14,77 & 20,95 \\
+            Hal 1 & Buiten & 100,00 & 111,40 & 16 & 37,88 & 14,77 & 46,68 \\
+            Hal 2 & Buiten & 100,00 & 111,40 & 16 & 37,88 & 14,77 & 46,68 \\
+            \midrule
+            Privé 1 & Living & --- & 72,00 & 20 & 24,48 & 20,00 & 0,00 \\
+            Privé 2 & Living & --- & 72,00 & 20 & 24,48 & 20,00 & 0,00 \\
+            Slaapkamer 1 & Hal 1 & --- & 68,10 & 18 & 23,15 & 16,00 & 46,31 \\
+            Slaapkamer 2 & Hal 2 & --- & 68,10 & 18 & 23,15 & 16,00 & 46,31 \\
+            Slaapkamer 3 & Hal 1 & --- & 43,30 & 18 & 14,72 & 16,00 & 29,44 \\
+            Slaapkamer 4 & Hal 2 & --- & 43,30 & 18 & 14,72 & 16,00 & 29,44 \\
+            \midrule
+            Hal 1 & Badkamer 1 & --- & 111,40 & 16 & 37,88 & 24,00 & -303,01 \\
+            Hal 2 & Badkamer 2 & --- & 111,40 & 16 & 37,88 & 24,00 & -303,01 \\
+            Living & Open keuken & --- & 150,00 & 20 & 51,00 & 20,00 & 0,00 \\
+            Hal 1 & Technische ruimte & --- & 111,40 & 16 & 37,88 & 16,00 & 0,00 \\
+            \bottomrule
+        \end{tabular}
+    }
+\end{table}
 
 
 \subsubsection{Infiltratie ventilatieverliezen}
@@ -419,21 +468,27 @@ met:
     \\
 \end{aligned}
 \end{equation*}
-Bij een gemiddelde watertemperatuur van 40°C vindt men in tabel A.1 uit het WTCB Rapport 14 dat de waarde van c gelijk is aan 4179 J/kgK \qty{4179}{\joule\per\kilo\gram\per\kelvin} 
+Bij een gemiddelde watertemperatuur van 40°C vindt men in tabel A.1 uit het WTCB Rapport 14 dat de waarde van c gelijk is aan \qty{4179}{\joule\per\kilo\gram\per\kelvin} 
 
 De benodigde waterdebieten voor de radiatoren wordt gegeven in volgende tabel:
 
 \subsection{Watersnelheden}
 
 \subsection{Dimensioneren van warmteleidingen}
- Aangezien we voor de radiatoren in de bovenverdieping het waterregime 45/35 gebruiken. We vinden in tabel A.1 van WTCB-rapport 14 voor een gemiddelde watertemperatuur van 40°C in de leidingen een volumemassa van \qty{992,2}{\joule\per\kilo\gram\per\kelvin}.
+ Aangezien we voor de radiatoren in de bovenverdieping het waterregime 45/35 gebruiken rekenen we verder met een gemiddelde watertemperatuur in de leidingen van 40°C.  Voor deze temperatuur vinden we in tabel A.1 van WTCB-rapport 14 een volumemassa van \qty{992,2}{\joule\per\kilo\gram\per\kelvin}.
 
- Naast de kring naar de vloerverwarming onderscheiden drie verschillende kringen (zie Figuur \ref{fig:axo leidingen}): kring A bedient de radiator in de grote slaapkamer, kring B bedient deze in de kleine slaapkamer en kring C deze in de badkamer. De overige kringen (D, E en F) zijn volledig analoog ten gevolge van de symmetrie van het grondplan.
+ Naast de kring naar de vloerverwarming onderscheiden zich drie verschillende kringen (zie Figuur \ref{fig:axo leidingen}): kring A bedient de radiator in de grote slaapkamer, kring B bedient deze in de kleine slaapkamer en kring C deze in de badkamer. De overige kringen (D, E en F) zijn volledig analoog ten gevolge van de symmetrie van het grondplan.
 
 Bij het bepalen van de binnendiameter van de leidingen rekenen we verder met de bekomen waterdebieten. De formule uit het WTCB Rapport 14 p.94 voor het berekenen van de watersnelheid in een buisstuk hebben we hieronder omgevormd naar de binnendiameter $D_{i}$:
 \begin{equation}
     D_i=\sqrt{\frac{q_{m,L}\left(3.54 \cdot 10^{-4}\right)}{v_{max}\rho}}
 \end{equation}
+
+Initieel rekenen we met de maximaal toegelaten watersnelheid om de minimale buisdiameter te bepakle
+\begin{equation}
+    {v_{max} = 0.5}
+\end{equation} 
+
 
 \begin{table}[!ht]
     \centering
@@ -648,14 +703,18 @@ diameter DN15 (1/2”)}
 
 
 \newpage
+\section{Bijlagen}
 \appendix
 \section{Uitgebreide berekening transmissieverliezen}
+\label{app:uitgebreide berekening transmissieverliezen}
 \begin{figure}[H]
     \centering
     \includegraphics[width=1\linewidth]{alletransmissieverliezen.png}
     \label{fig:placeholder}
 \end{figure}
 
+\section{Technische Fiche ventilatiesysteem}
+\label{app:TFventiunit}
 
 
 \end{document}
